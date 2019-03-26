@@ -8,16 +8,16 @@ before_install:
 script:
   - docker run taulant/docker-react npm run test -- --coverage
 
-  deploy:
-      provider: elasticbeanstalk
-      region: "us-east-2"
-      app: "docker-react"
-      env: "DocerReact-env"
-      bucket-name: "elasticbeanstalk-us-east-2-372282608408"
-      bucker-path: "docker-react"
+deploy:
+    provider: elasticbeanstalk
+    region: "us-east-2"
+    app: "docker-react"
+    env: "DocerReact-env"
+    bucket_name: "elasticbeanstalk-us-east-2-372282608408"
+    bucket_path: "docker-react"
 
-      on:
-        branch: master
-      access_key_id: $AWS_ACCESS_KEY
-      secret_access_key:
-          secret: "$AWS_SECRET_KEY"
+    on:
+      branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key:
+      secret: "$AWS_SECRET_KEY"
